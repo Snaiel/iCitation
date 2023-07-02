@@ -1,0 +1,28 @@
+Traditional databases (referred to as relational databases) store information as tables,
+with a table containing a list of entries as its rows and storing attributes as the column.
+This works well for structured data, such as a list of employees. Each employee would be a 
+row in an Employee table and may have information such as name or data of birth as the columns. 
+However, it would be difficult to store and query data such as images or documents. 
+
+Unstructured data such as images or documents may differ in how they convey information. 
+For example, the format of a financial report may differ from company to company. 
+Tables in the document or written content will be hard to search through. Unstructured 
+data needs to be turned into structured pieces of data to effectively store and query. 
+
+AI models specifically tailored to a type of unstructured data can embed data into a vector
+(an array of numbers) while still keeping the semantic meaning of the data. This would mean 
+that if we were to split up financial reports into chunks, the sections talking about CEO 
+compensation would be embedded into vectors that would be very similar. As a result of an AI model, 
+embedding unstructured data can keep its semantic meaning while turning it into a workable data 
+structure. 
+
+Vector databases are built from the ground up to store these vector embeddings along with the 
+original content of the data. They use algorithms that perform an Approximate Nearest Neighbour 
+(ANN) search to retrieve the vectors most similar to the query. For example, I could query a 
+vector database filled with financial reports with "CEO salary".  The embedding model would 
+turn it into a vector and the vector database uses this to search for similar vectors. 
+It would return vectors most similar to the query provided.  
+
+This differs from relational databases where the search results that match exactly to the query. 
+They also differ from vector search plugins as they are specifically built to store and handle 
+unstructured data instead of applying similarity searching on top of a traditional database. 

@@ -10,6 +10,9 @@
     <h1>iCitation</h1>
     <div style="width: 50%;">
         {% for sentence in content %}
+        {% if "\n" in sentence %}
+            <br><br>
+        {% endif %}
         <span class="sentence">
             {{ sentence }}
         </span>

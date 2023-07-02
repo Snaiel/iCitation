@@ -9,13 +9,14 @@
 <body>
     <h1>iCitation</h1>
     <div style="width: 50%;">
-        {% for sentence in content %}
+        {% for i in range(content|length) %}
+        {% set sentence = content[i] %}
         {% if "\n" in sentence %}
             <br><br>
         {% endif %}
-        <span class="sentence">
+        <a class="sentence", href="/sentence/{{ i }}">
             {{ sentence }}
-        </span>
+        </a>
         {% endfor %}
     </div>
 </body>

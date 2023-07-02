@@ -1,3 +1,8 @@
+.sentence {
+    text-decoration: none;
+    color: black;
+}
+
 .sentence:hover {
     background-color: lightblue;
 }

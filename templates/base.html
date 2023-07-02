@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <title>iCitation</title>
+</head>
+<body>
+    <h1>iCitation</h1>
+    <div style="width: 50%;">
+        {% for sentence in content %}
+        <span class="sentence">
+            {{ sentence }}
+        </span>
+        {% endfor %}
+    </div>
+</body>
+</html>

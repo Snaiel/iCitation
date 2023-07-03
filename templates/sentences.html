@@ -1,0 +1,14 @@
+<div style="margin-bottom: 4rem;">
+{% if session.sentences %}
+    {% set content = session.sentences %}
+    {% for i in range(content|length) %}
+        {% set sentence = content[i] %}
+        {% if "\n" in sentence %}
+            <br><br>
+        {% endif %}
+        <a class="sentence", href="/sentence/{{ i }}">
+            {{ sentence }}
+        </a>
+    {% endfor %}
+{% endif %}
+</div>

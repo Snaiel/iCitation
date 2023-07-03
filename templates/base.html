@@ -9,16 +9,9 @@
 <body>
     <h1>iCitation</h1>
     <div style="display: flex;">
-        <div style="width: 50%; padding: 2rem;">
-            {% for i in range(content|length) %}
-            {% set sentence = content[i] %}
-            {% if "\n" in sentence %}
-                <br><br>
-            {% endif %}
-            <a class="sentence", href="/sentence/{{ i }}">
-                {{ sentence }}
-            </a>
-            {% endfor %}
+        <div style="width: 50%; padding: 2rem; display: flex; flex-direction: column;">
+            {% include 'sentences.html' %}
+            {% include 'input_text.html' %}
         </div>
         <div style="width: 50%; padding: 2rem;">
             {% if sources %}

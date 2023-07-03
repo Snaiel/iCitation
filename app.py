@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, request, session
-# import vector_db
+import vector_db
 
 app = Flask(__name__)
 app.secret_key = "iCitation"

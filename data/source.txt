@@ -1,0 +1,9 @@
+https://www.pinecone.io/learn/vector-database
+https://codelabs.milvus.io/vector-database-101-what-is-a-vector-database/#0
+https://codelabs.milvus.io/vector-database-101-introduction-to-unstructured-data/#0
+https://learn.microsoft.com/en-us/semantic-kernel/memories/vector-db
+https://zilliz.com/what-is-milvus
+https://zilliz.com/comparison/milvus-vs-weaviate
+https://milvus.io/docs/product_faq.md
+https://milvus.io/docs/operational_faq.md
+https://milvus.io/docs/benchmark.md

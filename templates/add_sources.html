@@ -1,0 +1,18 @@
+<h2>Add Sources</h2>
+<div>
+    <div style="display: flex;">
+        <input type="text" id="input-field" style="flex: 1;">
+        <button id="add-button">Add</button>
+    </div>
+    
+    <div id="display-area">
+
+    </div>
+    
+    <form id="submit-form" action="/add_sources" method="post">
+        <input type="hidden" id="sources-to-add" name="sources-to-add">
+        <input type="submit" value="Submit Sources" style="width: 100%;">
+    </form>
+    
+    <script src="{{ url_for('static', filename='add_sources.js') }}"></script>
+</div>

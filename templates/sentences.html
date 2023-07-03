@@ -1,5 +1,6 @@
-<div style="margin-bottom: 4rem;">
 {% if session.sentences %}
+<div style="margin-bottom: 4rem;">
+    <h2>Current Text</h2>
     {% set content = session.sentences %}
     {% for i in range(content|length) %}
         {% set sentence = content[i] %}
@@ -10,5 +11,5 @@
             {{ sentence }}
         </a>
     {% endfor %}
-{% endif %}
 </div>
+{% endif %}

@@ -1,0 +1,8 @@
+{% if session.sources %}
+<div style="display: flex; flex-direction: column;">
+    <h2>Current Sources</h2>
+    {% for source in session.sources %}
+    <span>{{ source }}</span>
+    {% endfor %}
+</div>
+{% endif %}

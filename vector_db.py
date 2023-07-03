@@ -7,6 +7,7 @@ from pymilvus import connections, Collection, FieldSchema, CollectionSchema, Dat
 from typing import Dict, List, Tuple
 import json
 import textwrap
+from pprint import pprint
 
 connections.connect()
 
@@ -21,13 +22,13 @@ def create_collection():
     fields = [
         FieldSchema(name="pk", dtype=DataType.INT64, is_primary=True, auto_id=True),
         FieldSchema(name="text", dtype=DataType.VARCHAR, max_length=65_535),
-        FieldSchema(name="vector", dtype=DataType.FLOAT_VECTOR, dim=768)
+        FieldSchema(name="vector", dtype=DataType.FLOAT_VECTOR, dim=768),
+        FieldSchema(name='metadata', dtype=DataType.JSON)
     ]
     # 2. enable dynamic schema in schema definition
     schema = CollectionSchema(
             fields, 
-            "The schema for the sources", 
-            enable_dynamic_field=True
+            "Sources to search through for similarity"
     )
 
     # 3. reference the schema in a collection
@@ -49,9 +50,25 @@ def create_collection():
     collection.load()
     print("iCitation collection loaded")
 
+def add_sources(sources: list[str]):
+    print("Adding sources to iCitation collection")
+    loader = WebBaseLoader(web_path=sources)
+    docs = loader.load()
+
+    for doc in docs:
+        doc.metadata = {'metadata': doc.metadata}
+
+    text_splitter = RecursiveCharacterTextSplitter(
+        separators=["\n\n", "\n", ". "],
+        chunk_size = 300,
+        chunk_overlap = 0,
+    )
+
+    docs = text_splitter.split_documents(docs)
+    vector_store.add_documents(docs)
+
 def search(sentence: str) -> Dict[str, List[Tuple[float, str]]]:
     print("searching with query: ", sentence)
-    vector_store: Milvus
     output = vector_store.similarity_search_with_score(sentence, 5)
     sources = {}
 
@@ -68,7 +85,7 @@ def search(sentence: str) -> Dict[str, List[Tuple[float, str]]]:
     print("searching done")
     return sources
 
-create_collection()
+# create_collection()
 
 print("retrieving HuggingFace embeddings")
 embeddings = HuggingFaceEmbeddings()

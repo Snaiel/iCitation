@@ -13,23 +13,10 @@
             {% include 'sentences.html' %}
             {% include 'input_text.html' %}
         </div>
-        <div style="width: 50%; padding: 2rem;">
-            {% if sources %}
-                <span style="background-color: lightblue;">{{ target_sentence }}</span>
-                <br><br>
-                <span>Similar passages with scores (lower means more similar):</span>
-                <br><br>
-                {% for source, passages in sources.items() %}
-                    <a href="{{ source }}">{{ source }}</a>
-                    <br><br>
-                    {% for passage in passages %}
-                        <div style="padding-left: 2rem;">
-                            {{ "%0.2f "|format(passage[0]) + passage[1] }}
-                        </div>
-                        <br>
-                    {% endfor %}
-                {% endfor %}
-            {% endif %}
+        <div style="width: 50%; padding: 2rem; display: flex; flex-direction: column;">
+            {% include 'relevant_sources.html' %}
+            {% include 'sources.html' %}
+            {% include 'add_sources.html' %}
         </div>
     </div>
 </body>

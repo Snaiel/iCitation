@@ -5,6 +5,8 @@ import vector_db
 app = Flask(__name__)
 app.secret_key = "iCitation"
 
+session["sources"] = []
+
 @app.route("/")
 def home():
     return render_template("base.html")
@@ -28,7 +30,7 @@ def add_sources():
         if sources_to_add:
             sources_to_add = json.loads(sources_to_add)
             vector_db.add_sources(sources_to_add)
-            session["sources"] = sources_to_add
+            session["sources"].append(sources_to_add)
     return redirect("/")
 
 @app.route('/sentence/<index>')

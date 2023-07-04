@@ -7,13 +7,15 @@
     <title>iCitation</title>
 </head>
 <body>
-    <h1>iCitation</h1>
-    <div style="display: flex;">
-        <div style="width: 50%; padding: 2rem; display: flex; flex-direction: column;">
+    <header>
+        iCitation
+    </header>
+    <div class="page-content">
+        <div class="page-column">
             {% include 'sentences.html' %}
             {% include 'input_text.html' %}
         </div>
-        <div style="width: 50%; padding: 2rem; display: flex; flex-direction: column;">
+        <div class="page-column">
             {% include 'relevant_sources.html' %}
             {% include 'sources.html' %}
             {% include 'add_sources.html' %}

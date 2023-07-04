@@ -74,7 +74,8 @@ def search(sentence: str) -> Dict[str, List[Tuple[float, str]]]:
 
     for doc, score in output:
         text = doc.page_content
-        source = json.loads(doc.metadata['metadata'].decode('utf-8'))['source']
+        # source = json.loads(doc.metadata['metadata'].decode('utf-8'))['source']
+        source = doc.metadata['metadata']['source']
         wrapped_text = '\n'.join(textwrap.wrap(text, width=60))
 
         if source in sources:

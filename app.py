@@ -5,10 +5,10 @@ import vector_db
 app = Flask(__name__)
 app.secret_key = "iCitation"
 
-session["sources"] = []
-
 @app.route("/")
 def home():
+    if "sources" not in session:
+        session["sources"] = []
     return render_template("base.html")
 
 @app.route("/input_text/", methods=['GET', 'POST'])

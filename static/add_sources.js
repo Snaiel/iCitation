@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     var addButton = document.getElementById('add-button');
     var inputField = document.getElementById('input-field');
-    var displayArea = document.getElementById('display-area');
+    var displayArea = document.getElementById('display-area-inner');
     var submitForm = document.getElementById('submit-form');
+    var submitButton = document.getElementById('submit-button');
     var formDataInput = document.getElementById('sources-to-add');
     var textList = [];
 
@@ -12,9 +13,13 @@ document.addEventListener('DOMContentLoaded', function() {
             text = text.split(" ")
             text.forEach(function(source, index) {
                 textList.push(source);
-                displayArea.innerHTML += '<p>' + source + '</p>';
+                displayArea.innerHTML += '<span>' + source + '</span><div style="height: 0.5rem"></div>';
                 inputField.value = '';
             });
+
+            if (submitButton.disabled) {
+                submitButton.disabled = false;
+            }
         }
     }
 

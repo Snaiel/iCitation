@@ -21,7 +21,7 @@ header {
     font-size: 35px;
     font-weight: 500;
     background-color: white;
-    color: #7e22ce;
+    color: #6d28d9;
     padding: 0.5rem;
     padding-left: 2rem;
 }
@@ -34,13 +34,48 @@ header {
 .page-content {
     display: flex;
     padding: 2rem 4rem; 
+    margin-bottom: 5rem;
 }
 
 .page-column {
-    width: 50%; 
+    width: 50vw; 
     display: flex; 
     flex-direction: column;
-    padding: 0rem 4rem; 
+    margin: 0rem 4rem;
+}
+
+.input-text-area, .add-source-input {
+    border: none;
+    resize: none;
+    font-family: 'Rubik', sans-serif;
+    font-size: 18px;
+    border: 2px solid transparent;
+}
+
+.input-text-area:focus, .add-source-input:focus {
+    outline: none;
+    border: 2px solid #c4b5fd;
+}
+
+.button {
+    border: none;
+    margin: 1rem 0;
+    height: 2rem;
+    font-size: 16px;
+    background-color: #ddd6fe;
+}
+
+.add-source-button {
+    border: none;
+    font-size: 16px;
+    background-color: #ddd6fe;
+    width: 5rem;
+    margin-left: 1rem;
+}
+
+.button:not([disabled]):hover, .add-source-button:hover {
+    background-color: #c4b5fd;
+    cursor: pointer;
 }
 
 .sentences {
@@ -54,7 +89,7 @@ header {
 }
 
 .sentence:hover, .relevant-sources-target {
-    background-color: #e9d5ff;
+    background-color: #ddd6fe;
 }
 
 .source-link {
@@ -65,4 +100,14 @@ header {
 
 .source-link:hover {
     color: #1d4ed8;
+}
+
+.add-sources-display {
+    font-family: 'Rubik', sans-serif;
+    width: 0;
+    min-width: 100%;
+    min-height: 20rem;
+    margin-top: 1rem;
+    font-size: 18px;
+    background-color: #e5e5e5;
 }

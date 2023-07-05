@@ -5,7 +5,7 @@ import vector_db
 app = Flask(__name__)
 app.secret_key = "iCitation"
 
-CURRENT_SOURCES_FILE = "data/current_sources.txt"
+CURRENT_SOURCES_FILE = "data/current_sources.json"
 
 
 @app.route("/")
@@ -14,9 +14,11 @@ def home():
     if "sources" not in session:
         if os.path.exists(CURRENT_SOURCES_FILE):
             with open(CURRENT_SOURCES_FILE) as file:
-                session["sources"] = file.readlines()
+                session["sources"] = json.load(file)
         else:
-            session["sources"] = []
+            session["sources"] = {}
+    else:
+        print(session['sources'])
     return render_template("base.html")
 
 @app.route("/input_text/", methods=['GET', 'POST'])
@@ -34,15 +36,23 @@ def process_text():
 @app.route('/add_sources', methods=['GET', 'POST'])
 def add_sources():
     if request.method == 'POST':
+
         sources_to_add = request.form.get('sources-to-add')
+        citations = request.form.get('sources-citations')
+
         if sources_to_add:
             sources_to_add = json.loads(sources_to_add)
+            citations = json.loads(citations)
             vector_db.add_sources(sources_to_add)
-            current_sources: list = session.get("sources")
-            current_sources.extend(sources_to_add)
+
+            current_sources: dict = session["sources"]
+            current_sources.update(dict([i for i in zip(sources_to_add, citations)]))
+
             session["sources"] = current_sources
+
             with open(CURRENT_SOURCES_FILE, 'w') as file:
-                file.write('\n'.join(current_sources))
+                json.dump(session["sources"], file)
+
     return redirect("/")
 
 @app.route('/sentence/<index>')
@@ -62,8 +72,10 @@ def create_collection():
 @app.route("/delete_collection")
 def delete_collection():
     vector_db.delete_collection()
-    session.pop("sources")
-    session.pop("target_sentence")
-    session.pop("relevant_sources")
+
+    for i in ['sources', 'target_sentence', 'relevant_sources']:
+        if i in session:
+            session.pop(i)
+
     os.remove(CURRENT_SOURCES_FILE)
     return redirect("/")

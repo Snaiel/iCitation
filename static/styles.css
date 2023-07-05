@@ -90,6 +90,12 @@ header {
     color: #78716c;
 }
 
+.citation-input {
+    height: 1.5rem; 
+    width: 10rem; 
+    margin-right: 1rem
+}
+
 .sentences {
     margin-bottom: 4rem; 
     text-align: justify;
@@ -102,6 +108,29 @@ header {
 
 .sentence:hover, .relevant-sources-target {
     background-color: #ddd6fe;
+}
+
+.citation {
+    display: flex;
+    margin-right: 1rem;
+    color: #78716c;
+}
+
+.bi-clipboard {
+    padding-top: 0.1rem;
+    padding-left: 0.5rem;
+    filter: invert(45%) sepia(12%) saturate(260%) hue-rotate(342deg) brightness(94%) contrast(83%);
+}
+
+.citation:hover * {
+    filter: none;
+    color: black;
+    cursor: pointer;
+}
+
+.citation:active * {
+    filter: invert(45%) sepia(12%) saturate(260%) hue-rotate(342deg) brightness(94%) contrast(83%);
+    color: #78716c;
 }
 
 .source-link {

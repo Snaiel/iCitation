@@ -7,13 +7,14 @@
     </div>
     
     <div id="display-area" class="add-sources-display">
-        <div id="display-area-inner" style="padding: 0.5rem 1rem; word-wrap: break-word;">
+        <div id="display-area-inner" style="padding: 1rem; word-wrap: break-word;">
 
         </div>
     </div>
     
     <form id="submit-form" action="/add_sources" method="post">
         <input type="hidden" id="sources-to-add" name="sources-to-add">
+        <input type="hidden" id="sources-citations" name="sources-citations">
         <input id="submit-button" type="submit" value="Submit Sources" style="width: 100%;" class="button" onclick="openModal('modal-2', false)" disabled>
     </form>
     

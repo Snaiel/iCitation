@@ -1,3 +1,4 @@
+{% if session.collection_exists %}
 <h2>Add Sources</h2>
 <div>
     <div style="display: flex; height: 2rem;">
@@ -18,3 +19,4 @@
     
     <script src="{{ url_for('static', filename='add_sources.js') }}"></script>
 </div>
+{% endif %}

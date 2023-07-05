@@ -11,6 +11,9 @@ from pprint import pprint
 
 connections.connect()
 
+def collection_exists():
+    return utility.has_collection("iCitation")
+
 def create_collection():
     if utility.has_collection("iCitation"):
         print("Dropping iCitation collection")
@@ -86,10 +89,17 @@ def search(sentence: str) -> Dict[str, List[Tuple[float, str]]]:
     print("searching done")
     return sources
 
+def delete_collection():
+    if utility.has_collection("iCitation"):
+        print("Dropping iCitation collection")
+        collection = Collection("iCitation")
+        collection.drop()
+
 # create_collection()
 
 print("retrieving HuggingFace embeddings")
 embeddings = HuggingFaceEmbeddings()
 
-print("retrieving iCitation collection")
-vector_store = Milvus(embeddings, "iCitation")
+if utility.has_collection("iCitation"):
+    print("retrieving iCitation collection")
+    vector_store = Milvus(embeddings, "iCitation")

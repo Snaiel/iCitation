@@ -7,6 +7,8 @@ app.secret_key = "iCitation"
 
 @app.route("/")
 def home():
+    session["collection_exists"] = vector_db.collection_exists()
+    print(session["collection_exists"])
     if "sources" not in session:
         session["sources"] = []
     return render_template("base.html")
@@ -39,4 +41,9 @@ def search_sentence(index):
     target_sentence = sentences[int(index)]
     session["target_sentence"] = target_sentence
     session["relevant_sources"] = vector_db.search(target_sentence)
+    return redirect("/")
+
+@app.route("/delete_collection")
+def delete_collection():
+    vector_db.delete_collection()
     return redirect("/")

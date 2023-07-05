@@ -50,6 +50,7 @@ header {
     font-family: 'Rubik', sans-serif;
     font-size: 18px;
     border: 2px solid transparent;
+    border-radius: 0.3rem;
 }
 
 .input-text-area:focus, .add-source-input:focus {
@@ -63,6 +64,7 @@ header {
     height: 2rem;
     font-size: 16px;
     background-color: #ddd6fe;
+    border-radius: 0.3rem;
 }
 
 .add-source-button {
@@ -71,6 +73,7 @@ header {
     background-color: #ddd6fe;
     width: 5rem;
     margin-left: 1rem;
+    border-radius: 0.3rem;
 }
 
 .button:not([disabled]):hover, .add-source-button:hover {
@@ -110,4 +113,86 @@ header {
     margin-top: 1rem;
     font-size: 18px;
     background-color: #e5e5e5;
+    border-radius: 0.3rem;
+}
+
+.button-delete-collection {
+    background-color: transparent;
+    border: 2px solid #ddd6fe;
+    height: 2rem;
+    width: 12rem;
+    margin-top: 5rem;
+    margin-left: auto;
+    font-size: 16px;
+    border-radius: 0.3rem;
+}
+
+.button-delete-collection:hover {
+    background-color: #c4b5fd;
+    border: 2px solid #c4b5fd;
+    cursor: pointer;
+}
+
+/* MODAL STYLES
+-------------------------------*/
+.delete-collection-modal {
+    /* modals are hidden by default */
+    display: none;
+
+    /* modal container fixed across whole screen */
+    position: fixed;
+    inset: 0;
+
+    /* z-index must be higher than everything else on the page */
+    z-index: 10000;
+    
+    /* semi-transparent black background exposed by padding */
+    background-color: rgba(0, 0, 0, .75);
+    padding: 40px;
+
+    /* enables scrolling for tall modals */
+    overflow: auto;
+}
+
+.delete-collection-modal.open {
+    display: block;
+}
+
+.delete-collection-modal-body {
+    padding: 0.5rem 2rem;
+    background: #fff;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30rem;
+    border-radius: 0.3rem;
+}
+
+body.delete-collection-modal-open {
+    /* body overflow is hidden to hide main scrollbar when modal window is open */
+    overflow: hidden;
+}
+
+.button-confirm-delete {
+    border: none;
+    height: 2rem;
+    width: 8rem;
+    font-size: 16px;
+    background-color: #f87171;
+    margin-bottom: 1rem;
+    float: right;
+    border-radius: 0.3rem;
+
+    color: black;
+    text-decoration: none;
+    font-family: 'Rubik', sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 2rem;
+}
+
+.button-confirm-delete:hover {
+    background-color: #ef4444;
+    cursor: pointer;
 }

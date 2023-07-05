@@ -86,6 +86,10 @@ header {
     cursor: pointer;
 }
 
+.button:disabled {
+    color: #78716c;
+}
+
 .sentences {
     margin-bottom: 4rem; 
     text-align: justify;

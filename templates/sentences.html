@@ -1,6 +1,7 @@
 {% if session.sentences and session.collection_exists %}
 <div class="sentences">
     <h2>Current Text</h2>
+    <span class="note">Click on a sentence to search for similar passages in the sources</span><br><br>
     {% set content = session.sentences %}
     {% for i in range(content|length) %}
         {% set sentence = content[i] %}

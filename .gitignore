@@ -1,3 +1,5 @@
+current_sources.json
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -1,0 +1,10 @@
+{% if session.collection_exists %}
+<button onclick="openModal('modal-1', true)" class="button-delete-collection">Delete Collection</button>
+
+<div id="modal-1" class="modal">
+    <div class="modal-body">
+        <h2>Are you sure you want to delete all sources?</h2>
+        <a href="/delete_collection" class="button-confirm-delete">Delete</a>
+    </div>
+</div>
+{% endif %}

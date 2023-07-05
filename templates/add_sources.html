@@ -14,9 +14,16 @@
     
     <form id="submit-form" action="/add_sources" method="post">
         <input type="hidden" id="sources-to-add" name="sources-to-add">
-        <input id="submit-button" type="submit" value="Submit Sources" style="width: 100%;" class="button" disabled>
+        <input id="submit-button" type="submit" value="Submit Sources" style="width: 100%;" class="button" onclick="openModal('modal-2', false)" disabled>
     </form>
     
     <script src="{{ url_for('static', filename='add_sources.js') }}"></script>
+
+    <div id="modal-2" class="modal">
+        <div class="modal-body">
+            <h2>Please wait while the sources are being processed.</h2>
+            <img src="{{ url_for('static', filename='three-dots.svg') }}" class="three-dots" height="10" />
+        </div>
+    </div>
 </div>
 {% endif %}

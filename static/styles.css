@@ -140,7 +140,7 @@ header {
 
 /* MODAL STYLES
 -------------------------------*/
-.delete-collection-modal {
+.modal {
     /* modals are hidden by default */
     display: none;
 
@@ -159,11 +159,11 @@ header {
     overflow: auto;
 }
 
-.delete-collection-modal.open {
+.modal.open {
     display: block;
 }
 
-.delete-collection-modal-body {
+.modal-body {
     padding: 0.5rem 2rem;
     background: #fff;
     position: fixed;
@@ -174,7 +174,7 @@ header {
     border-radius: 0.3rem;
 }
 
-body.delete-collection-modal-open {
+body.modal-open {
     /* body overflow is hidden to hide main scrollbar when modal window is open */
     overflow: hidden;
 }
@@ -208,6 +208,14 @@ body.delete-collection-modal-open {
     margin: 0;
     position: absolute;
     top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.three-dots {
+    filter: invert(45%) sepia(12%) saturate(260%) hue-rotate(342deg) brightness(94%) contrast(83%);
+    margin-bottom: 1rem;
+    position: relative;
     left: 50%;
     transform: translate(-50%, -50%);
 }

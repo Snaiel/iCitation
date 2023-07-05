@@ -20,8 +20,10 @@
             {% include 'relevant_sources.html' %}
             {% include 'sources.html' %}
             {% include 'add_sources.html' %}
-            {% include 'manage_db.html' %}
+            {% include 'delete_collection.html' %}
         </div>
     </div>
+
+    <script src="{{ url_for('static', filename='modal.js') }}"></script>
 </body>
 </html>

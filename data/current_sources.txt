@@ -1,0 +1,2 @@
+https://www.pinecone.io/learn/vector-database
+https://codelabs.milvus.io/vector-database-101-what-is-a-vector-database/#0

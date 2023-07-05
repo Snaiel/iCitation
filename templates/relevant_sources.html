@@ -6,8 +6,13 @@
     <span class="note">Similar passages with scores (lower means more similar):</span>
     <br><br>
     {% for source, passages in session.relevant_sources.items() %}
-        <a href="{{ source }}" class="source-link">{{ source }}</a>
-        <br><br>
+        <div style="display: flex;">
+            {% if session.sources[source] %}
+            {% include 'citation.html' %}
+            {% endif %}
+            <a href="{{ source }}" class="source-link">{{ source }}</a>
+        </div>
+        <br>
         {% for passage in passages %}
             <div style="padding-left: 2rem; text-align: justify;">
                 <span style="font-weight: bold;">

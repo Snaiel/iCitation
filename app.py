@@ -11,15 +11,12 @@ CURRENT_SOURCES_FILE = "data/current_sources.txt"
 @app.route("/")
 def home():
     session["collection_exists"] = vector_db.collection_exists()
-    print(session)
     if "sources" not in session:
         if os.path.exists(CURRENT_SOURCES_FILE):
             with open(CURRENT_SOURCES_FILE) as file:
                 session["sources"] = file.readlines()
         else:
             session["sources"] = []
-    else:
-        print(session['sources'])
     return render_template("base.html")
 
 @app.route("/input_text/", methods=['GET', 'POST'])
@@ -66,5 +63,7 @@ def create_collection():
 def delete_collection():
     vector_db.delete_collection()
     session.pop("sources")
+    session.pop("target_sentence")
+    session.pop("relevant_sources")
     os.remove(CURRENT_SOURCES_FILE)
     return redirect("/")

@@ -1,4 +1,4 @@
-{% if session.relevant_sources %}
+{% if session.relevant_sources and session.collection_exists %}
 <div style="margin-bottom: 4rem;">
     <h2>Relevant Sources</h2>
     <span class="relevant-sources-target">{{ session.target_sentence }}</span>

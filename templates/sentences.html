@@ -1,4 +1,4 @@
-{% if session.sentences %}
+{% if session.sentences and session.collection_exists %}
 <div class="sentences">
     <h2>Current Text</h2>
     {% set content = session.sentences %}

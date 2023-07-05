@@ -1,13 +1,10 @@
-from bibtexparser import parse_file
 from langchain.document_loaders import WebBaseLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores.milvus import Milvus
 from langchain.embeddings.huggingface import HuggingFaceEmbeddings
 from pymilvus import connections, Collection, FieldSchema, CollectionSchema, DataType, connections, utility
 from typing import Dict, List, Tuple
-import json
 import textwrap
-from pprint import pprint
 
 vector_store: Milvus
 

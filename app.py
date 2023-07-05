@@ -17,8 +17,6 @@ def home():
                 session["sources"] = json.load(file)
         else:
             session["sources"] = {}
-    else:
-        print(session['sources'])
     return render_template("base.html")
 
 @app.route("/input_text/", methods=['GET', 'POST'])

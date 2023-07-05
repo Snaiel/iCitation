@@ -1,0 +1,4 @@
+pymilvus
+sentence-transformers
+langchain
+flask

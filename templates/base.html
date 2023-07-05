@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='icon.ico') }}">
     <title>iCitation</title>
 </head>
 <body>
     <header>
-        iCitation
+        <img src="{{ url_for('static', filename='banner.png') }}" alt="iCitation" height="50" class="banner">
     </header>
     {% include 'create_collection.html' %}
     <div class="page-content">

@@ -22,8 +22,13 @@ header {
     font-weight: 500;
     background-color: white;
     color: #6d28d9;
-    padding: 0.5rem;
     padding-left: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.banner {
+    padding: 0.5rem 0;
 }
 
 .note {
@@ -114,6 +119,7 @@ header {
     display: flex;
     margin-right: 1rem;
     color: #78716c;
+    white-space: nowrap;
 }
 
 .bi-clipboard {

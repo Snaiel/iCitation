@@ -47,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         let citations = [];
         let citation_inputs = displayArea.querySelectorAll("input");
-        console.log(citation_inputs);
         citation_inputs.forEach((val) => {
             citations.push(val.value)
         })

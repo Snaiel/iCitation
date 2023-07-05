@@ -2,6 +2,7 @@
 <h2>Set Text to Analyse</h2>
 <form action="/input_text" method="post" style="display: flex; flex-direction: column;">
     <textarea name="input-text" id="input-text" rows="20" class="input-text-area" spellcheck="false" placeholder="Enter the text you want to analyse here..."></textarea>
-    <input type="submit" value="Process Input" class="button">
+    <input type="submit" id="input-text-button" value="Process Input" class="button" disabled>
 </form>
+<script src="{{ url_for('static', filename='input_text.js') }}"></script>
 {% endif %}

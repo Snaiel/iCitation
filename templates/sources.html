@@ -1,8 +1,8 @@
 {% if session.sources %}
-<div style="display: flex; flex-direction: column;">
+<div style="display: flex; flex-direction: column; margin-bottom: 4rem;">
     <h2>Current Sources</h2>
     {% for source in session.sources %}
-    <span>{{ source }}</span>
+        <a href="{{ source }}" class="source-link">{{ source }}</a>
     {% endfor %}
 </div>
 {% endif %}

@@ -9,6 +9,8 @@ import json
 import textwrap
 from pprint import pprint
 
+vector_store: Milvus
+
 connections.connect()
 
 def collection_exists():
@@ -52,6 +54,9 @@ def create_collection():
     # 5. load the collection
     collection.load()
     print("iCitation collection loaded")
+
+    global vector_store
+    vector_store = Milvus(embeddings, "iCitation")
 
 def add_sources(sources: list[str]):
     print("Adding sources to iCitation collection")

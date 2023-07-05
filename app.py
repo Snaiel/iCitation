@@ -1,16 +1,25 @@
 from flask import Flask, render_template, redirect, request, session
-import json
+import json, os
 import vector_db
 
 app = Flask(__name__)
 app.secret_key = "iCitation"
 
+CURRENT_SOURCES_FILE = "data/current_sources.txt"
+
+
 @app.route("/")
 def home():
     session["collection_exists"] = vector_db.collection_exists()
-    print(session["collection_exists"])
+    print(session)
     if "sources" not in session:
-        session["sources"] = []
+        if os.path.exists(CURRENT_SOURCES_FILE):
+            with open(CURRENT_SOURCES_FILE) as file:
+                session["sources"] = file.readlines()
+        else:
+            session["sources"] = []
+    else:
+        print(session['sources'])
     return render_template("base.html")
 
 @app.route("/input_text/", methods=['GET', 'POST'])
@@ -32,7 +41,11 @@ def add_sources():
         if sources_to_add:
             sources_to_add = json.loads(sources_to_add)
             vector_db.add_sources(sources_to_add)
-            session["sources"].append(sources_to_add)
+            current_sources: list = session.get("sources")
+            current_sources.extend(sources_to_add)
+            session["sources"] = current_sources
+            with open(CURRENT_SOURCES_FILE, 'w') as file:
+                file.write('\n'.join(current_sources))
     return redirect("/")
 
 @app.route('/sentence/<index>')
@@ -52,4 +65,6 @@ def create_collection():
 @app.route("/delete_collection")
 def delete_collection():
     vector_db.delete_collection()
+    session.pop("sources")
+    os.remove(CURRENT_SOURCES_FILE)
     return redirect("/")

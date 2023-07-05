@@ -59,12 +59,17 @@ header {
 }
 
 .button {
+    font-family: 'Rubik', sans-serif;
     border: none;
     margin: 1rem 0;
     height: 2rem;
     font-size: 16px;
     background-color: #ddd6fe;
     border-radius: 0.3rem;
+    text-decoration: none;
+    line-height: 2rem;
+    color: black;
+    text-align: center;
 }
 
 .add-source-button {
@@ -195,4 +200,14 @@ body.delete-collection-modal-open {
 .button-confirm-delete:hover {
     background-color: #ef4444;
     cursor: pointer;
+}
+
+.button-create-collection {
+    display: inline-block;
+    width: 12rem;
+    margin: 0;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

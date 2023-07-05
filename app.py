@@ -43,6 +43,12 @@ def search_sentence(index):
     session["relevant_sources"] = vector_db.search(target_sentence)
     return redirect("/")
 
+@app.route('/create_collection')
+def create_collection():
+    if not vector_db.collection_exists():
+        vector_db.create_collection()
+    return redirect("/")
+
 @app.route("/delete_collection")
 def delete_collection():
     vector_db.delete_collection()

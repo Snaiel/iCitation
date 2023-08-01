@@ -75,5 +75,7 @@ def delete_collection():
         if i in session:
             session.pop(i)
 
-    os.remove(CURRENT_SOURCES_FILE)
+    if os.path.exists(CURRENT_SOURCES_FILE):
+        os.remove(CURRENT_SOURCES_FILE)
+    
     return redirect("/")
